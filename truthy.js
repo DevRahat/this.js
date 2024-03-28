@@ -1,4 +1,4 @@
-var myVar = true;
+var myVar = '';
 
 if(myVar){
     console.log("This is truthy");
