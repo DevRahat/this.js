@@ -1,0 +1,105 @@
+class BankAccount {
+  String? accountHoldername;
+  num? _blance = 0;
+
+  BankAccount.open() {
+    _submitform();
+    _approveFromManager();
+  }
+  void _submitform() {
+    print("Submitting the form");
+  }
+
+  void _approveFromManager() {
+    print("Approval has done");
+  }
+
+  void deposit(num amount) {
+    if (amount > 0) {
+      _blance = _blance! + amount;
+    } else {
+      throw Exception("Blance can't be Zero");
+    }
+  }
+
+  void withdrow(num amount) {
+    if (amount > 0) {
+      _blance = _blance! - amount;
+    } else {
+      throw Exception("Withdrow amount can't be zero");
+    }
+  }
+
+  getBlance() {
+    return _blance;
+  }
+
+  tex(num texamount) {
+    _blance = _blance! - texamount;
+    return _blance;
+  }
+}
+
+
+
+class OrderCalculator {
+  num? totalAmount;
+  num? taxpercentage;
+  num? tip;
+  num? shipping;
+
+  void calculator() {
+    final value = totalAmount! + taxpercentage! + tip! + shipping!;
+    print(value);
+  }
+}
+
+class SendMail extends OrderCalculator {
+  static String email = "rahatislam92@gmail.com";
+  static void sendmain() {
+    print("mail send to $email");
+  }
+}
+
+
+
+
+class Television implements Remote, Off {
+  String? brandname;
+  int? price;
+
+  void tv() {
+    print("Start the TV");
+  }
+
+  @override
+  void volumeDown() {
+    print("Volume Up the LG TV");
+  }
+
+  @override
+  void volumeUp() {
+    print("Volume up your LG TV");
+  }
+
+  @override
+  void off() {
+    print("Turn off your LG Tv....");
+  }
+}
+
+class Remote {
+  void volumeUp() {
+    print("Volume up...");
+  }
+
+  void volumeDown() {
+    print("Volume Down..");
+  }
+}
+
+class Off {
+  void off() {
+    print("Turn off your Tv");
+  }
+}
